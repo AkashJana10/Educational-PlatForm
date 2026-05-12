@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,} from "react-router-dom";
 import Home from "./pages/home/Home";
 import Header from "./components/header/Header";
 import Login from "./pages/auth/Login";
@@ -22,17 +22,18 @@ import AdminCourses from "./admin/Courses/AdminCourses";
 import AdminUsers from "./admin/Users/AdminUsers";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
+import ChartBot from "./pages/chart/ChartBot";
 
 const App = () => {
   const { isAuth, user, loading } = UserData();
+
   return (
-    
     <>
       {loading ? (
         <Loading />
       ) : (
         <BrowserRouter>
-          <Header  isAuth={isAuth} />
+          <Header isAuth={isAuth} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -90,6 +91,7 @@ const App = () => {
               path="/admin/users"
               element={isAuth ? <AdminUsers user={user} /> : <Login />}
             />
+            <Route path="/chart" element={isAuth ? <ChartBot /> : <Login />} />
           </Routes>
           <Footer />
         </BrowserRouter>

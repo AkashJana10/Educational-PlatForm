@@ -20,6 +20,7 @@ const authUser = async (req, res, next) => {
         .status(404)
         .json({ success: false, message: "User does'n exist" });
     req.user = user;
+    
     next();
   } catch (error) {
     console.error("authUser error:", error.message);

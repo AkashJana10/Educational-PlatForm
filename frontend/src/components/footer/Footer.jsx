@@ -25,9 +25,12 @@ import {
   FaAward,
   FaCode,
 } from "react-icons/fa";
-
+import {useLocation} from "react-router-dom"
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+
+  if(location.pathname === "/chart") return null;
 
   return (
     <footer className="bg-gradient-to-r from-gray-900 via-slate-900 to-gray-900 text-white">

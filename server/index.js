@@ -32,11 +32,12 @@ import userRoutes from "./routes/user.js";
 import courseRoutes from "./routes/course.js";
 import adminRoutes from "./routes/admin.js";
 import coachingRouter from "./routes/coachingRoute.js";
-
+import chartRouter from "./routes/chart.js";
 // using routes
 app.use("/api", userRoutes);
 app.use("/api", courseRoutes);
 app.use("/api", adminRoutes);
+app.use("/api", chartRouter);
 app.use("/api/coaching", coachingRouter);
 
 app.listen(port, async () => {
